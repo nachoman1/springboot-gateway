@@ -1,0 +1,32 @@
+server:
+  port: 8181
+  
+logging:
+    level:
+        ROOT: INFO
+
+spring:
+  cloud:
+    stream:
+        kafka:
+          binder:
+            brokers: vmhost
+            zkNodes: vmhost
+
+        bindings:
+          input:
+            destination: tablerecords
+            group: demosink
+          output:
+            destination: tablerecords.stamped
+            group: demosink
+
+            
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bindings
+  health:
+    binders:
+      enabled: true

@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.lab.splex</groupId>
-	<artifactId>splex-gateway</artifactId>
+	<artifactId>splex-ping</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>splex-gateway</name>
-	<description>Demo splex - kafka gateway</description>
+	<name>splex-ping</name>
+	<description>Demo splex - kafka ping</description>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

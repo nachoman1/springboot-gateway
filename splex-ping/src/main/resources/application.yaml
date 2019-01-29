@@ -1,3 +1,7 @@
+ping:
+  service:
+    intervalInMillis: 10
+
 server:
   port: 8182
   

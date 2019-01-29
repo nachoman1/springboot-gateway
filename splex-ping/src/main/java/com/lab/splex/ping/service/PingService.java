@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.cloud.stream.messaging.Source;
@@ -24,6 +25,9 @@ public class PingService {
 	@Autowired
 	Source source;
 	
+	@Value ("ping.service.intervalInMillis:1000")
+	String intervalInMillis;
+	
     public void knock(final String beat) {
     	    
         logger.info("Sending heartbeat {}", beat);
@@ -39,7 +43,8 @@ public class PingService {
     @StreamEmitter
     @Output(Source.OUTPUT)
     public Flux<String> emit() {
-      return Flux.interval(Duration.ofMillis(1000))
+      return Flux.interval(
+    		  Duration.ofMillis( Long.parseLong( intervalInMillis ) ) )
               .map(l -> "knocking @ " + System.currentTimeMillis());
     }   
     

@@ -25,7 +25,7 @@ public class PingService {
 	@Autowired
 	Source source;
 	
-	@Value ("ping.service.intervalInMillis:1000")
+	@Value ("${ping.service.intervalInMillis:1000}")
 	String intervalInMillis;
 	
     public void knock(final String beat) {

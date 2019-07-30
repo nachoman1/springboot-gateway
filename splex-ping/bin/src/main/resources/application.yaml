@@ -1,0 +1,33 @@
+ping:
+  service:
+    intervalInMillis: 10
+
+server:
+  port: 8182
+  
+logging:
+    level:
+        ROOT: INFO
+
+spring:
+  cloud:
+    stream:
+        kafka:
+          binder:
+            brokers: localhost
+            zkNodes: localhost
+
+        bindings:
+          output:
+            destination: tablerecords
+            group: demoping
+
+            
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bindings
+  health:
+    binders:
+      enabled: true

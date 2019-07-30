@@ -1,6 +1,6 @@
 ping:
   service:
-    intervalInMillis: 10
+    intervalInMillis: 10000
 
 server:
   port: 8182
@@ -14,8 +14,8 @@ spring:
     stream:
         kafka:
           binder:
-            brokers: localhost
-            zkNodes: localhost
+            brokers: mainhost
+            zkNodes: mainhost
 
         bindings:
           output:
